@@ -28,14 +28,15 @@ export class DashboardComponent implements OnDestroy, OnInit {
   ) {}
 
   ngOnInit() {
-    import('./dynamic/foo.component').then(({ default: FooComponent }) => {
+    import('./dynamic/foo.component').then(({ FooComponent }) => {
       const element = document.createElement('app-foo');
       this.containerElement.appendChild(element);
-      const componentInstance = renderComponent(FooComponent, {
+      renderComponent(FooComponent, {
         host: element,
         injector: this.injector,
       });
-    })
+    });
+    console.log(this.injector);
   }
 
   ngOnDestroy() {

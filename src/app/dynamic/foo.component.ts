@@ -9,7 +9,7 @@ import { Component, NgModule } from '@angular/core';
   `,
   styles: []
 })
-export default class FooComponent {}
+export class FooComponent {}
 
 @NgModule({
   declarations: [
