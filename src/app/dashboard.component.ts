@@ -1,12 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  Injector,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  ɵrenderComponent as renderComponent,
-} from '@angular/core';
+import { Component, ElementRef, Injector, OnDestroy, OnInit, ViewChild } from '@angular/core';
+
+import { DynamicService } from './dynamic/dynamic.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,18 +19,14 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   constructor(
     private injector: Injector,
+    private dynamicService: DynamicService,
   ) {}
 
   ngOnInit() {
-    import('./dynamic/foo.component').then(({ FooComponent }) => {
-      const element = document.createElement('app-foo');
-      this.containerElement.appendChild(element);
-      renderComponent(FooComponent, {
-        host: element,
-        injector: this.injector,
-      });
-    });
-    console.log(this.injector);
+    this.dynamicService.loadComponent(
+      this.injector,
+      this.containerElement,
+      'foo');
   }
 
   ngOnDestroy() {

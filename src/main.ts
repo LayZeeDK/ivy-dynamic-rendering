@@ -1,6 +1,7 @@
 import { enableProdMode, Injector, ɵrenderComponent as renderComponent } from '@angular/core';
 
 import { AppComponent } from './app/app.component';
+import { DynamicService } from './app/dynamic/dynamic.service';
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -9,7 +10,9 @@ if (environment.production) {
 
 const rootInjector = Injector.create({
   name: 'root',
-  providers: [],
+  providers: [
+    { provide: DynamicService, useClass: DynamicService },
+  ],
 });
 
 renderComponent(AppComponent, {
