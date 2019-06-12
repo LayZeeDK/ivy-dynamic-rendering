@@ -1,4 +1,10 @@
-import { Component, ElementRef, Injector, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
 import { DynamicService } from './dynamic/dynamic.service';
 
@@ -18,13 +24,11 @@ export class DashboardComponent implements OnDestroy, OnInit {
   }
 
   constructor(
-    private injector: Injector,
     private dynamicService: DynamicService,
   ) {}
 
   ngOnInit() {
     this.dynamicService.loadComponent(
-      this.injector,
       this.containerElement,
       'foo');
   }

@@ -1,10 +1,18 @@
-import { Injectable, Injector, ɵrenderComponent as renderComponent } from '@angular/core';
+import {
+  Injectable,
+  Injector,
+  ɵrenderComponent as renderComponent,
+} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DynamicService {
-  loadComponent(injector: Injector, container: HTMLElement, tag: string) {
+  constructor(
+    private injector: Injector,
+  ) {}
+
+  loadComponent(container: HTMLElement, tag: string) {
     return import(`./${tag}.component`)
       .then(esModule => esModule.default)
       .then(ComponentType => {
@@ -12,7 +20,7 @@ export class DynamicService {
         container.appendChild(element);
         renderComponent(ComponentType, {
           host: element,
-          injector,
+          injector: this.injector,
         })
       });
   }
