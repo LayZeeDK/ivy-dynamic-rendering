@@ -28,9 +28,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
   ) {}
 
   ngOnInit() {
-    this.dynamicService.loadComponent(
-      this.containerElement,
-      'foo');
+    this.dynamicService.loadComponent('foo')
+      .then(({ host }) => this.containerElement.appendChild(host));
   }
 
   ngOnDestroy() {
