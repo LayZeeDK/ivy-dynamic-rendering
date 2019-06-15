@@ -1,27 +1,31 @@
-# IvyDynamicRendering
+# Angular In Depth workshop on dynamic rendering with Ivy
+Built using these commands
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+Ivy application
+ng new aid-ivy-workshop --enable-ivy=true --minimal=true --inline-style=true --inline-template=true --routing=false --style=css --skip-tests
+cd aid-ivy-workshop
+ng update @angular/core --next
 
-## Development server
+## Resources on dynamic rendering
+Lazy-loading plugin components and Angular modules in View Engine
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+eval() + Compiler
+https://github.com/kirjs/angular-dynamic-module-loading/blob/master/src/app/app.component.ts
 
-## Code scaffolding
+SystemJS.import() + Compiler
+https://stackoverflow.com/a/50395048/1071200
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+modules.json + SystemJS.import() + Compiler
+https://github.com/lmeijdam/angular-umd-dynamic-example
 
-## Build
+SystemJS with AOT-compiled modules (no Compiler)
+https://stackoverflow.com/a/45506470/1071200
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<script type="module"> + dynamic import() with fallback to SystemJS.import()
+https://medium.com/@camille_hdl/dynamic-import-of-es6-modules-with-fallback-to-systemjs-c72b30b8225e
 
-## Running unit tests
+Here is what you need to know about dynamic components in Angular by Max Koretskyi
+https://blog.angularindepth.com/here-is-what-you-need-to-know-about-dynamic-components-in-angular-ac1e96167f9e
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+It's Alive! Dynamic components in Angular by Shmula Jacobs
+https://youtu.be/q2Exs-82tkw
