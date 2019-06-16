@@ -1,10 +1,11 @@
 # Angular In Depth workshop on dynamic rendering with Ivy
 Built using these commands
 
-Ivy application
-ng new aid-ivy-workshop --enable-ivy=true --minimal=true --inline-style=true --inline-template=true --routing=false --style=css --skip-tests
-cd aid-ivy-workshop
+```
+ng new ivy-dynamic-rendering --enable-ivy=true --minimal=true --inline-style=true --inline-template=true --routing=false --style=css --skip-tests
+cd ivy-dynamic-rendering
 ng update @angular/core --next
+```
 
 ## Resources on dynamic rendering
 Lazy-loading plugin components and Angular modules in View Engine
