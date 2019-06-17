@@ -7,8 +7,7 @@ cd ivy-dynamic-rendering
 ng update @angular/core --next
 ```
 
-## Resources on dynamic rendering
-Lazy-loading plugin components and Angular modules in View Engine
+## Lazy-loading plugin components and Angular modules in View Engine
 
 [eval() + Compiler](https://github.com/kirjs/angular-dynamic-module-loading/blob/master/src/app/app.component.ts)
 
@@ -23,3 +22,8 @@ Lazy-loading plugin components and Angular modules in View Engine
 [Here is what you need to know about dynamic components in Angular by Max Koretskyi](https://blog.angularindepth.com/here-is-what-you-need-to-know-about-dynamic-components-in-angular-ac1e96167f9e)
 
 [It's Alive! Dynamic components in Angular by Shmula Jacobs](https://youtu.be/q2Exs-82tkw)
+
+## Lazy-loading plugin components in Ivy
+Dynamic `import()` statements are transpiled to promises by WebPack and need to be statically analyzable. This means that we don't get runtime dynamic imports. The experimental solution in this repository works with the Webpack development server supplied by Angular CLI, but doesn't work in production when you need runtime dynamic plugins such as loading a configuration from the a server or dynamic loading based on user input.
+
+To do this, we would need to combine the experimental Ivy APIs with one of the solutions from the above resources. For example `SystemJS.import` or a `<script type="module">` loader.
